@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" href="item6-img.png">
   <!-- Icons (Font Awesome) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
   <style>
     html, body {
@@ -19,16 +20,20 @@
       overflow: hidden;
       font-family: sans-serif;
     }
-
-    #tsparticles-hero {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-
+#lottie-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /*opacity: 0.25;  🔥 controls transparency */
+  pointer-events: none;
+}
+#lottie-bg svg {
+  width: 100% !important;
+  height: 100% !important;
+}
     .coming-soon-container {
       position: relative;
       width: 100%;
@@ -126,7 +131,7 @@
 
 <body>
 
-<div id="tsparticles-hero"></div>
+<div id="lottie-bg"></div>
 
 <div class="coming-soon-container">
   <img src="logo.png" alt="Logo" class="coming-soon-logo">
@@ -137,52 +142,6 @@
       <a href="https://www.tiktok.com/@miniature3d.it?_r=1&_t=ZN-94mD4dlAv82" target="_blank"><i class="fab fa-tiktok"></i></a>
   </div>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const isMobile = window.innerWidth < 768;
-
-  tsParticles.load("tsparticles-hero", {
-    fpsLimit: isMobile ? 30 : 60, // limit FPS on mobile
-
-    background: { color: "#161616" },
-    fullScreen: { enable: false },
-
-    particles: {
-      number: {
-        value: isMobile ? 3 : 8, // fewer particles on mobile
-        density: { enable: true, area: 800 }
-      },
-
-      color: { value: "#3dfdff" },
-
-      links: {
-        enable: !isMobile, // ❌ disable on mobile
-        distance: 120,
-        color: "#3dfdff",
-        opacity: 0.2,
-        width: 1
-      },
-
-      move: {
-        enable: true,
-        speed: isMobile ? 0.2 : 0.4 // slower on mobile
-      },
-
-      size: {
-        value: isMobile ? 1.5 : 2
-      },
-
-      opacity: {
-        value: 0.3
-      }
-    },
-
-    detectRetina: true
-  });
-});
-</script>
 
 </body>
 </html>
