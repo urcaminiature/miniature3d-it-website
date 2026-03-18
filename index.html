@@ -79,54 +79,45 @@
       color: #3dfdff; /* colored on hover */
       transform: translateY(-2px);
     }
-
 /* Tablets */
 @media (max-width: 1024px) {
-  .coming-soon-logo {
-    width: 250px;
-  }
   .coming-soon-title {
-    font-size: 3.8rem;
+    font-size: 4rem;
   }
   .coming-soon-desc {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
   .social-icons a {
-    font-size: 32px;
+    font-size: 38px;
   }
 }
 
 /* Phones */
 @media (max-width: 768px) {
   .coming-soon-logo {
-    width: 250px; /* ✅ as requested */
-    margin-bottom: 35px;
+    width: 250px;
   }
   .coming-soon-title {
-    font-size: 4rem; /* bigger but not crazy */
+    font-size: 3.6rem;
   }
   .coming-soon-desc {
-    font-size: 1.2rem; /* more readable */
-    padding: 0 10px; /* prevent edge touching */
+    font-size: 1.2rem;
   }
   .social-icons a {
-    font-size: 38px; /* bigger icons */
+    font-size: 36px;
   }
 }
 
 /* Small phones */
 @media (max-width: 480px) {
-  .coming-soon-logo {
-    width: 250px; /* slightly reduced so it fits */
-  }
   .coming-soon-title {
-    font-size: 3.4rem;
+    font-size: 3rem;
   }
   .coming-soon-desc {
     font-size: 1.1rem;
   }
   .social-icons a {
-    font-size: 34px;
+    font-size: 32px;
   }
 }
 
@@ -149,17 +140,46 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
+  const isMobile = window.innerWidth < 768;
+
   tsParticles.load("tsparticles-hero", {
+    fpsLimit: isMobile ? 30 : 60, // limit FPS on mobile
+
     background: { color: "#161616" },
     fullScreen: { enable: false },
+
     particles: {
-      number: { value: 5, density: { enable: true, area: 600 } },
+      number: {
+        value: isMobile ? 3 : 8, // fewer particles on mobile
+        density: { enable: true, area: 800 }
+      },
+
       color: { value: "#3dfdff" },
-      links: { enable: true, distance: 800, color: "#3dfdff", opacity: 0.2, width: 1 },
-      move: { enable: true, speed: 0.3 },
-      size: { value: 2 },
-      opacity: { value: 0.3 }
-    }
+
+      links: {
+        enable: !isMobile, // ❌ disable on mobile
+        distance: 120,
+        color: "#3dfdff",
+        opacity: 0.2,
+        width: 1
+      },
+
+      move: {
+        enable: true,
+        speed: isMobile ? 0.2 : 0.4 // slower on mobile
+      },
+
+      size: {
+        value: isMobile ? 1.5 : 2
+      },
+
+      opacity: {
+        value: 0.3
+      }
+    },
+
+    detectRetina: true
   });
 });
 </script>
