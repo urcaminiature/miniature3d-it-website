@@ -107,15 +107,6 @@ title: Order Your Miniature
 <p id="sizeText" class="step-desc" style="margin-top: 5px;"></p>
     <label>Richieste Speciali (Opzionale):</label>
     <textarea name="request" rows="4"></textarea>
-<div class="checkbox-group" style="margin-top: 10px; display: flex; align-items: flex-start;">
-  <div>
-    <label for="includeBase" style="font-size: 16px; font-weight: 500;">
-      Includi Base:
-      <input type="checkbox" name="includeBase" value="yes" id="includeBase" 
-             style="width: 24px; height: 24px; margin-left: 10px; position: relative; top: 6px;">
-    </label>
-  </div>
-</div>
 
     <label>Seleziona un file STL:</label>
     <input type="file" id="stlFileInput" accept=".stl" required>
@@ -148,9 +139,9 @@ const messages = {
 };
 
 const prices = {
-  "Small": "6.80€",
-  "Medium": "7.20€",
-  "Large": "12.80€"
+  "Small": "11.90€",
+  "Medium": "14.90€",
+  "Large": "17.90€"
 };
 
 // Update everything when the user selects a size
@@ -261,16 +252,16 @@ const includeBaseCheckbox = document.getElementById("includeBase");
 
 const PAYMENT_LINKS = {
   "Small": {
-    "yes": "https://buy.stripe.com/test_fZu4gz09FgHBdW2cAgeME00",
-    "no":  "https://buy.stripe.com/test_cNi9ATg8D62Xf06bwceME01"
+    "yes": "https://buy.stripe.com/bJecN508Z1T7au28uQffy03",
+    "no":  "https://buy.stripe.com/dRmeVd5tj55j31Ah1mffy02"
   },
   "Medium": {
-    "yes": "https://buy.stripe.com/test_cNi9ATg8D62Xf06bwceME01",
-    "no":  "https://buy.stripe.com/test_fZu4gz09FgHBdW2cAgeME00"
+    "yes": "https://buy.stripe.com/aFa3cv5tj1T77hQ7qMffy04",
+    "no":  "https://buy.stripe.com/4gM8wPbRH2Xb31AaCYffy01"
   },
     "Large": {
-    "yes": "https://buy.stripe.com/test_cNi9ATg8D62Xf06bwceME01",
-    "no":  "https://buy.stripe.com/test_fZu4gz09FgHBdW2cAgeME00"
+    "yes": "https://buy.stripe.com/bJeaEX5tjapD8lUh1mffy05",
+    "no":  "https://buy.stripe.com/dRmeVddZP55j59I7qMffy00"
   }
 };
 
