@@ -1,0 +1,92 @@
+---
+layout: default
+title: Explore Products
+---
+
+<section class="title">
+  <h1>Order Your Miniature</h1>
+</section>
+<section class="explore-products">
+
+  <a href="https://buy.stripe.com/test_1KnightLink" target="_blank" class="product-link">
+    <div class="product-card">
+      <img src="/assets/images/card-item-01.jpg" alt="Knight Miniature">
+      <h3>Knight Miniature</h3>
+      <p class="price">€12.00</p>
+    </div>
+  </a>
+
+  <a href="https://buy.stripe.com/test_2DragonLink" target="_blank" class="product-link">
+    <div class="product-card">
+      <img src="/assets/images/card-item-02.jpg" alt="Dragon Miniature">
+      <h3>Dragon Miniature</h3>
+      <p class="price">€18.00</p>
+    </div>
+  </a>
+
+  <a href="https://buy.stripe.com/test_3WizardLink" target="_blank" class="product-link">
+    <div class="product-card">
+      <img src="/assets/images/card-item-03.jpg" alt="Wizard Miniature">
+      <h3>Wizard Miniature</h3>
+      <p class="price">€15.00</p>
+    </div>
+  </a>
+
+  <!-- Repeat for the remaining cards with your Stripe links -->
+</section>
+<style>
+  .title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.explore-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px); /* fixed width for each card */
+  justify-content: center;  /* centers the grid horizontally */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.product-card {
+  background: #1E1E1E;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 10px;          /* equal space on all sides */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card img {
+  width: 100%;            /* full width inside padding */
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;     /* match card corners */
+  display: block;
+}
+
+.product-card h3 {
+  margin: 10px 0 5px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+/* Optional: hover effect */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.product-link {
+  text-decoration: none;  /* remove underline */
+  color: inherit;         /* keep text color */
+  display: block;         /* make the link cover the card */
+}
+</style>

@@ -1,0 +1,59 @@
+---
+layout: default
+title: Contatti
+---
+
+<section class="order-section">
+  <h1>Contattaci</h1>
+  <p>Compila il form e inviaci il tuo messaggio.</p>
+
+  <form id="contactForm" action="https://formspree.io/f/mwvrbbky" method="POST">
+
+    <label>Nome:</label>
+    <input type="text" name="name" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Messaggio:</label>
+    <textarea name="message" rows="6" required></textarea>
+
+    <button type="submit">Invia</button>
+
+  </form>
+</section>
+<style>
+body {
+  background-image: url("/assets/images/mesh.png"); 
+  background-repeat: no-repeat;    
+  background-size: cover;           
+  background-position: center;     
+  background-attachment: fixed;    
+}
+
+.order-section {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 2.5%;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 25px;
+}
+</style>

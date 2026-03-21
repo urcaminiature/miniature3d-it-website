@@ -1,0 +1,311 @@
+---
+layout: default
+title: Mini Personalizzata
+---
+
+<section class="order-section">
+  <h2 class="timeline-title">Richiedi una mini personalizzata</h2>
+  <p class="step-desc">Spiegaci la tua idea compilando il form. Ti contatteremo al più presto via mail con le nostre proposte!</p>
+  <form id="orderForm" action="https://formspree.io/f/mwvrbbky" method="POST">
+
+    <label>Nome:</label>
+    <input type="text" name="name" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+<label>Taglia:</label>
+<select name="size" id="sizeSelect" required>
+  <option value="">Seleziona una taglia</option>
+  <option value="Small">Piccola</option>
+  <option value="Medium">Media</option>
+  <option value="Large">Grande</option>
+</select>
+
+<!-- This paragraph will show instructions -->
+<p id="sizeText" class="step-desc" style="margin-top: 5px;"></p>
+    <label>Richieste Speciali (Opzionale):</label>
+    <textarea name="request" rows="4"></textarea>
+<div class="checkbox-group" style="margin-top: 10px; display: flex; align-items: flex-start;">
+  <div>
+    <label for="includeBase" style="font-size: 16px; font-weight: 500;">
+      Includi Base:
+      <input type="checkbox" name="includeBase" value="yes" id="includeBase" 
+             style="width: 24px; height: 24px; margin-left: 10px; position: relative; top: 6px;">
+    </label>
+  </div>
+</div>
+
+    <label>Seleziona un file STL:</label>
+    <input type="file" id="stlFileInput" accept=".stl" required>
+    <p id="uploadStatus" class="step-desc" style="margin-top: 5px;">Seleziona un file STL per iniziare l'upload...</p>
+
+    <!-- This is what gets sent to Formspree -->
+    <input type="hidden" name="fileName" id="fileName">
+
+<div style="margin-top: 15px;">
+  <p id="totalPrice" style="margin: 0 0 10px 0; font-weight: 600;">
+    Totale Stimato: --
+  </p>
+
+  <button type="submit" id="submitBtn" disabled>
+    Procedi
+  </button>
+</div>
+
+  </form>
+</section>
+<script>
+const sizeSelect = document.getElementById('sizeSelect');
+const sizeText = document.getElementById('sizeText');
+const totalPrice = document.getElementById('totalPrice');
+
+const messages = {
+  "Small": "Creature di taglia piccola hanno un'altezza compresa tra 60 e 120cm. Corrisponde a una miniatura di circa 2cm",
+  "Medium": "Creature di taglia media hanno un'altezza compresa tra 120 e 240cm. Corrisponde a una miniatura di circa 3cm",
+  "Large": "Creature di taglia grande hanno un'altezza compresa tra 240 e 480cm. Corrisponde a una miniatura di circa 6cm",
+};
+
+const prices = {
+  "Small": "da 2.80€",
+  "Medium": "da 4.20€",
+  "Large": "da 5.80€"
+};
+
+// Update everything when the user selects a size
+sizeSelect.addEventListener('change', () => {
+  const selected = sizeSelect.value;
+
+  // Update description text
+  if (messages[selected]) {
+    sizeText.textContent = messages[selected];
+  } else {
+    sizeText.textContent = "";
+  }
+
+  // Update price
+  if (prices[selected]) {
+    totalPrice.textContent = "Totale Stimato: " + prices[selected];
+  } else {
+    totalPrice.textContent = "Totale Stimato: --";
+  }
+});
+</script>
+<style>
+.checkmark {
+  color: green;          /* make the check green */
+  font-size: 1.2em;      /* optionally bigger than step-desc */
+  vertical-align: middle;
+}
+  body {
+  background-image: url("/assets/images/mesh.png"); 
+  background-repeat: no-repeat;    
+  background-size: cover;           
+  background-position: center;     
+  background-attachment: fixed;    
+}
+.order-section {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 2.5%;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 25px;
+}
+button:disabled {
+  background-color: #ccc;   /* light gray background */
+  color: #666;              /* darker gray text */
+  cursor: not-allowed;      /* shows “no” cursor */
+  opacity: 0.7;             /* slightly faded */
+}
+</style>
+<script>
+const form = document.getElementById("orderForm");
+const button = form.querySelector("button");
+const inputs = {
+  name: form.querySelector("input[name='name']"),
+  email: form.querySelector("input[name='email']"),
+  size: form.querySelector("select[name='size']"),
+  file: form.querySelector("#stlFileInput")
+};
+
+// Function to check if all required fields are filled
+function checkFormValidity() {
+  if (
+    inputs.name.value.trim() &&
+    inputs.email.value.trim() &&
+    inputs.size.value &&
+    inputs.file.files.length > 0
+  ) {
+    button.disabled = false; // enable button
+  } else {
+    button.disabled = true; // keep it disabled
+  }
+}
+
+// Listen for changes on inputs
+inputs.name.addEventListener("input", checkFormValidity);
+inputs.email.addEventListener("input", checkFormValidity);
+inputs.size.addEventListener("change", checkFormValidity);
+inputs.file.addEventListener("change", checkFormValidity);
+
+// Initial check in case some fields are prefilled
+checkFormValidity();
+</script>
+<script>
+const formReady = document.getElementById("orderForm");
+const fileInput = document.getElementById("stlFileInput");
+const fileNameField = document.getElementById("fileName");
+const buttonReady = formReady.querySelector("button");
+const uploadStatus = document.getElementById("uploadStatus");
+const sizeSelected = document.querySelector("select[name='size']");
+const includeBaseCheckbox = document.getElementById("includeBase");
+
+const PAYMENT_LINKS = {
+  "Small": {
+    "yes": "https://buy.stripe.com/test_fZu4gz09FgHBdW2cAgeME00",
+    "no":  "https://buy.stripe.com/test_cNi9ATg8D62Xf06bwceME01"
+  },
+  "Medium": {
+    "yes": "https://buy.stripe.com/test_cNi9ATg8D62Xf06bwceME01",
+    "no":  "https://buy.stripe.com/test_fZu4gz09FgHBdW2cAgeME00"
+  },
+    "Large": {
+    "yes": "https://buy.stripe.com/test_cNi9ATg8D62Xf06bwceME01",
+    "no":  "https://buy.stripe.com/test_fZu4gz09FgHBdW2cAgeME00"
+  }
+};
+
+// Pinata credentials
+const PINATA_API_KEY = "fdae6078a80a4f198a99";
+const PINATA_API_SECRET = "f3dbe562d88fdfca17f7d8f92dcfc58354afbaaa6175ff1811188b5d5d10ceda";
+
+// Hidden field for IPFS link
+const fileLinkField = document.createElement("input");
+fileLinkField.type = "hidden";
+fileLinkField.name = "fileLink";
+formReady.appendChild(fileLinkField);
+
+// Initially disable button
+buttonReady.disabled = true;
+
+let uploaded = false; // track if file is uploaded
+
+function checkFormReady() {
+  if (
+    formReady.querySelector("input[name='name']").value.trim() &&
+    formReady.querySelector("input[name='email']").value.trim() &&
+    sizeSelected.value &&
+    uploaded
+  ) {
+    buttonReady.disabled = false;
+  } else {
+    buttonReady.disabled = true;
+  }
+}
+
+// Function to generate timestamped filename
+function getTimestampedFilename(originalName) {
+  const timestamp = Date.now(); // milliseconds since epoch
+  const dotIndex = originalName.lastIndexOf(".");
+  if (dotIndex === -1) return `${originalName}_${timestamp}`;
+  const name = originalName.slice(0, dotIndex);
+  const ext = originalName.slice(dotIndex);
+  return `${name}_${timestamp}${ext}`;
+}
+
+// File upload
+fileInput.addEventListener("change", async () => {
+  const file = fileInput.files[0];
+  if (!file) return;
+
+  uploadStatus.textContent = "Caricamento...";
+  buttonReady.disabled = true;
+  uploaded = false;
+
+  try {
+    const newFileName = getTimestampedFilename(file.name);
+    fileNameField.value = newFileName; // Update form field
+
+    const timestampedFile = new File([file], newFileName, { type: file.type });
+
+    const data = new FormData();
+    data.append("file", timestampedFile);
+
+    const response = await fetch("https://api.pinata.cloud/pinning/pinFileToIPFS", {
+      method: "POST",
+      headers: {
+        pinata_api_key: PINATA_API_KEY,
+        pinata_secret_api_key: PINATA_API_SECRET
+      },
+      body: data
+    });
+
+    if (!response.ok) throw new Error("Caricamento non riuscito. Riprovare...");
+
+    const result = await response.json();
+    const cid = result.IpfsHash;
+    fileLinkField.value = cid;
+
+    uploadStatus.innerHTML = `File Caricato <span class="checkmark">✅</span>`;
+    uploaded = true;
+    checkFormReady();
+
+  } catch (err) {
+    console.error(err);
+    uploadStatus.textContent = "Upload non riuscito. Riprovare";
+    uploaded = false;
+    checkFormReady();
+  }
+});
+
+formReady.querySelector("input[name='name']").addEventListener("input", checkFormReady);
+formReady.querySelector("input[name='email']").addEventListener("input", checkFormReady);
+sizeSelected.addEventListener("change", checkFormReady);
+
+// Form submission
+formReady.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  buttonReady.disabled = true;
+  buttonReady.textContent = "Sending order...";
+
+  try {
+    const formData = new FormData(formReady);
+
+    await fetch(formReady.action, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    const size = sizeSelected.value;
+    const baseOption = includeBaseCheckbox.checked ? "yes" : "no";
+    const paymentURL = PAYMENT_LINKS[size][baseOption];
+
+    window.location.href = paymentURL;
+
+  } catch (err) {
+    console.error(err);
+    alert("Qualcosa è andato storto! Riprovare.");
+    buttonReady.disabled = false;
+    buttonReady.textContent = "Procedi";
+  }
+});
+</script>

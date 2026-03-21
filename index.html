@@ -1,156 +1,335 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SKLYXSWYPW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+---
+layout: default
+title: Miniature3D
+---
 
-  gtag('config', 'G-SKLYXSWYPW');
-</script>
-  <meta charset="UTF-8">
-  <title>Coming Soon</title>
-
-  <!-- tsParticles -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <link rel="icon" type="image/png" href="item6-img.png">
-  <!-- Icons (Font Awesome) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #161616;
-      overflow: hidden;
-      font-family: sans-serif;
-    }
-#lottie-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  /*opacity: 0.25;  🔥 controls transparency */
-  pointer-events: none;
-}
-#lottie-bg svg {
-  width: 100% !important;
-  height: 100% !important;
-}
-    .coming-soon-container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-      z-index: 2;
-      color: white; /* ensure text is white */
-    }
-
-    .coming-soon-logo {
-      width: 180px; /* default desktop size */
-      height: auto;
-      margin-bottom: 30px;
-    }
-
-    .coming-soon-title {
-      font-size: 3rem; /* default desktop size */
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: white; /* force white */
-    }
-
-    .coming-soon-desc {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 1rem;
-      margin-bottom: 30px;
-      max-width: 600px;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 20px;
-    }
-
-    .social-icons a {
-      font-size: 28px;
-      color: rgba(255, 255, 255, 0.4);
-      transition: all 0.2s ease;
-    }
-
-    .social-icons a:hover {
-      color: #3dfdff; /* colored on hover */
-      transform: translateY(-2px);
-    }
-/* Tablets */
-@media (max-width: 1024px) {
-  .coming-soon-title {
-    font-size: 4rem;
-  }
-  .coming-soon-desc {
-    font-size: 1.3rem;
-  }
-  .social-icons a {
-    font-size: 38px;
-  }
-}
-
-/* Phones */
-@media (max-width: 768px) {
-  .coming-soon-logo {
-    width: 250px;
-  }
-  .coming-soon-title {
-    font-size: 3.6rem;
-  }
-  .coming-soon-desc {
-    font-size: 1.2rem;
-  }
-  .social-icons a {
-    font-size: 36px;
-  }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  .coming-soon-title {
-    font-size: 3rem;
-  }
-  .coming-soon-desc {
-    font-size: 1.1rem;
-  }
-  .social-icons a {
-    font-size: 32px;
-  }
-}
-
-  </style>
-</head>
-
-<body>
-
-<div id="lottie-bg"></div>
-
-<div class="coming-soon-container">
-  <img src="logo.png" alt="Logo" class="coming-soon-logo">
-  <h1 class="coming-soon-title">Coming Soon</h1>
-  <p class="coming-soon-desc">Nel frattempo, seguici su Instagram e TikTok per restare aggiornatə su tutte le news!</p>
-  <div class="social-icons">
-      <a href="https://www.instagram.com/miniature3d.it/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@miniature3d.it?_r=1&_t=ZN-94mD4dlAv82" target="_blank"><i class="fab fa-tiktok"></i></a>
-  </div>
+<!-- Background animated elements -->
+<div class="background-elements">
+    <!-- Spinning -->
+    <img class="spin" src="{{ '/assets/images/item2.png' | relative_url }}" alt="Spinning element">
+    <!-- Twinkling stars (7 total) -->
+    <img class="twinkle" style="top: 15%; left: 25%; animation-delay: 0s;" src="{{ '/assets/images/item1.png' | relative_url }}" alt="Twinkling star 1">
+    <img class="twinkle" style="top: 32%; left: 68%; animation-delay: 0.5s;" src="{{ '/assets/images/item1.png' | relative_url }}" alt="Twinkling star 2">
+    <img class="twinkle" style="top: 15%; left: 40%; animation-delay: 1s;" src="{{ '/assets/images/item1.png' | relative_url }}" alt="Twinkling star 3">
+    <img class="twinkle" style="top: 18%; left: 80%; animation-delay: 1.5s;" src="{{ '/assets/images/item1.png' | relative_url }}" alt="Twinkling star 4">
+    <img class="twinkle" style="top: 60%; left: 15%; animation-delay: 0.7s;" src="{{ '/assets/images/item1.png' | relative_url }}" alt="Twinkling star 5">
+    <img class="twinkle" style="top: 25%; left: 55%; animation-delay: 1.2s;" src="{{ '/assets/images/item1.png' | relative_url }}" alt="Twinkling star 6">
+    <img class="twinkle" style="top: 65%; left: 85%; animation-delay: 0.3s;" src="{{ '/assets/images/item1.png' | relative_url }}" alt="Twinkling star 7">
+    <!-- Pulsing -->
+    <img class="pulse" style="top: 50%; left: 70%; animation-delay: 0s;" src="{{ '/assets/images/item5.png' | relative_url }}" alt="Main pulsing element">
+    <img class="pulse-small" style="top: 30%; left: 85%; animation-delay: 0.8s;" src="{{ '/assets/images/item5.png' | relative_url }}" alt="Smaller pulsing element">
+    <img class="pulse-small" style="top: 35%; left: 27%; animation-delay: 0.8s;" src="{{ '/assets/images/item5.png' | relative_url }}" alt="Smaller pulsing element">
+    <!-- Sliding -->
+    <img class="slide" style="top: 50%; left: 20%;" src="{{ '/assets/images/item4.png' | relative_url }}" alt="Sliding element">
+    <img class="slide-vertical" style="top: 40%; left: 75%;" src="{{ '/assets/images/item3.png' | relative_url }}" alt="Sliding vertical element">
 </div>
 
-</body>
-</html>
+<section class="hero">
+  <h1>Miniature 3D</h1>
+  <p>
+  Miniature di alta qualità per giocatori e collezionisti.</p>
+  <p>Ordina dal catalogo, inviaci il tuo file da stampare oppure ordina la tua mini personalizzata!
+</p>
+  <div class="hero-buttons">
+    <a class="cta-button" href="{{ '/products' | relative_url }}">Esplora le Miniature</a>
+    <a class="cta-button order-button" href="{{ '/order.html' | relative_url }}">Carica il tuo File</a>
+    <a class="cta-button" href="{{ '/custom-order.html' | relative_url }}">Mini Personalizzata</a>
+  </div>
+</section>
+
+<!-- Featured Miniatures Section -->
+<section class="featured-miniatures" style="position: relative; padding: 40px 0; background: #161616;">
+ <div id="grid-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 20%;">
+    <div id="grid-animation" style="width: 100%; height: 100%;"></div>
+    <div style="
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #161616 40%, rgba(22,22,22,0) 100%);
+      pointer-events: none;
+    "></div>
+  </div>
+
+  <!-- Swiper Container -->
+  <div class="swiper featured-swiper">
+    <div class="swiper-wrapper">
+      {% for i in (1..9) %}
+      <div class="swiper-slide">
+        <div class="mini-card">
+          <img src="{{ '/assets/images/card-item-0' | append: i | append: '.png' | relative_url }}" alt="Miniature {{ i }}">
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Pagination Dots -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+<section class="timeline-section">
+  <h2 class="timeline-title">Come inviarci il tuo file</h2>
+<div class="timeline">
+
+  <div class="step-container">
+    <img src="/assets/images/pawn-mesh.png" alt="Step 1" class="step-image">
+  <div class="step-text">
+    <div class="step-title">Ottieni il file STL</div>
+    <div class="step-desc">Scarica, modella o ordina il file STL della tua mini. Se non lo hai ancora, te lo possiamo fare noi!</div>
+  </div>
+  </div>
+
+  <div class="timeline-arrow">
+      <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_625_20131)">
+          <path d="M13.0682 58.6163C14.3723 57.8473 15.7186 57.1206 17.0509 56.436L16.1333 54.65C14.7448 55.3625 13.3845 56.1032 12.0524 56.9002L13.0683 58.6444L13.0682 58.6163ZM21.1465 54.4527C22.5352 53.8244 23.9381 53.2383 25.3551 52.6944L24.6057 50.8245C23.1607 51.3965 21.7298 51.9825 20.313 52.6107L21.1324 54.4386L21.1465 54.4527ZM29.6344 51.1469C31.0797 50.6592 32.5251 50.2277 33.9986 49.8244L33.4458 47.8989C31.9582 48.3162 30.4707 48.7616 28.9974 49.2493L29.6344 51.1469ZM38.4195 48.6986C39.9073 48.3656 41.3952 48.0606 42.8972 47.7977L42.5408 45.8166C41.0107 46.0793 39.4948 46.3842 37.9649 46.7312L38.4195 48.6986ZM47.4036 47.1216C48.9199 46.929 50.4222 46.7786 51.9527 46.6563L51.7788 44.6615C50.2202 44.7838 48.6898 44.9342 47.1455 45.1267L47.4036 47.1216ZM56.5024 46.4156C58.019 46.3635 59.5498 46.3536 61.0666 46.3857L61.0753 44.3774C59.5164 44.3592 57.9715 44.3551 56.4128 44.4211L56.4884 46.4297L56.5024 46.4156ZM65.6314 46.5524C67.1485 46.6407 68.6656 46.7852 70.1829 46.9578L70.4022 44.9641C68.8569 44.7915 67.2977 44.6609 65.7526 44.5725L65.6315 46.5805L65.6314 46.5524ZM74.7067 47.5598C76.2101 47.8025 77.7135 48.0734 79.203 48.3863L79.591 46.4212C78.0734 46.1082 76.5278 45.8232 74.9963 45.5803L74.6927 47.5738L74.7067 47.5598ZM83.6578 49.4235C85.1335 49.8066 86.5952 50.2319 88.057 50.6852L88.6418 48.7767C87.1659 48.3093 85.648 47.8839 84.1582 47.4867L83.6578 49.4235ZM92.3866 52.1574C93.8064 52.6808 95.2405 53.2464 96.6465 53.84L97.428 51.9883C95.9938 51.3665 94.5458 50.8149 93.0978 50.2633L92.4147 52.1574L92.3866 52.1574ZM100.795 55.7471C102.159 56.4108 103.509 57.1166 104.845 57.8645L105.809 56.1116C104.445 55.3636 103.067 54.6296 101.661 53.9517L100.795 55.7471Z" fill="#919191"></path>
+          <path d="M95.5845 61.1824L95.0597 59.2569L104.589 56.6842L101.292 47.336L103.186 46.681L107.205 58.0676L95.5845 61.1824Z" fill="#919191"></path>
+          <circle cx="8.69433" cy="59.7296" r="3.91825" transform="rotate(-135 8.69433 59.7296)" stroke="#919191" stroke-width="2"></circle>
+        </g>
+        <defs>
+          <clipPath id="clip0_625_20131">
+            <rect width="76.2328" height="83.6102" fill="white" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 113.026 54.5132)"></rect>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+
+  <div class="step-container">
+    <img src="/assets/images/send-file.png" alt="Step 2" class="step-image">
+  <div class="step-text">
+    <div class="step-title">Inviaci il modellino</div>
+    <div class="step-desc">Una volta ottenuto il file STL, compila il form e inviacelo</div>
+  </div>
+  </div>
+
+    <div class="timeline-arrow">
+      <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_625_20131)">
+          <path d="M13.0682 58.6163C14.3723 57.8473 15.7186 57.1206 17.0509 56.436L16.1333 54.65C14.7448 55.3625 13.3845 56.1032 12.0524 56.9002L13.0683 58.6444L13.0682 58.6163ZM21.1465 54.4527C22.5352 53.8244 23.9381 53.2383 25.3551 52.6944L24.6057 50.8245C23.1607 51.3965 21.7298 51.9825 20.313 52.6107L21.1324 54.4386L21.1465 54.4527ZM29.6344 51.1469C31.0797 50.6592 32.5251 50.2277 33.9986 49.8244L33.4458 47.8989C31.9582 48.3162 30.4707 48.7616 28.9974 49.2493L29.6344 51.1469ZM38.4195 48.6986C39.9073 48.3656 41.3952 48.0606 42.8972 47.7977L42.5408 45.8166C41.0107 46.0793 39.4948 46.3842 37.9649 46.7312L38.4195 48.6986ZM47.4036 47.1216C48.9199 46.929 50.4222 46.7786 51.9527 46.6563L51.7788 44.6615C50.2202 44.7838 48.6898 44.9342 47.1455 45.1267L47.4036 47.1216ZM56.5024 46.4156C58.019 46.3635 59.5498 46.3536 61.0666 46.3857L61.0753 44.3774C59.5164 44.3592 57.9715 44.3551 56.4128 44.4211L56.4884 46.4297L56.5024 46.4156ZM65.6314 46.5524C67.1485 46.6407 68.6656 46.7852 70.1829 46.9578L70.4022 44.9641C68.8569 44.7915 67.2977 44.6609 65.7526 44.5725L65.6315 46.5805L65.6314 46.5524ZM74.7067 47.5598C76.2101 47.8025 77.7135 48.0734 79.203 48.3863L79.591 46.4212C78.0734 46.1082 76.5278 45.8232 74.9963 45.5803L74.6927 47.5738L74.7067 47.5598ZM83.6578 49.4235C85.1335 49.8066 86.5952 50.2319 88.057 50.6852L88.6418 48.7767C87.1659 48.3093 85.648 47.8839 84.1582 47.4867L83.6578 49.4235ZM92.3866 52.1574C93.8064 52.6808 95.2405 53.2464 96.6465 53.84L97.428 51.9883C95.9938 51.3665 94.5458 50.8149 93.0978 50.2633L92.4147 52.1574L92.3866 52.1574ZM100.795 55.7471C102.159 56.4108 103.509 57.1166 104.845 57.8645L105.809 56.1116C104.445 55.3636 103.067 54.6296 101.661 53.9517L100.795 55.7471Z" fill="#919191"></path>
+          <path d="M95.5845 61.1824L95.0597 59.2569L104.589 56.6842L101.292 47.336L103.186 46.681L107.205 58.0676L95.5845 61.1824Z" fill="#919191"></path>
+          <circle cx="8.69433" cy="59.7296" r="3.91825" transform="rotate(-135 8.69433 59.7296)" stroke="#919191" stroke-width="2"></circle>
+        </g>
+        <defs>
+          <clipPath id="clip0_625_20131">
+            <rect width="76.2328" height="83.6102" fill="white" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 113.026 54.5132)"></rect>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+
+  <div class="step-container">
+    <img src="/assets/images/hourglass.png" alt="Step 3" class="step-image">
+  <div class="step-text">
+    <div class="step-title">Un attimo di attesa</div>
+    <div class="step-desc">La stampa di una mini ad alta risoluzione potrebbe richiedere un paio di giorni</div>
+  </div>
+  </div>
+
+    <div class="timeline-arrow">
+      <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_625_20131)">
+          <path d="M13.0682 58.6163C14.3723 57.8473 15.7186 57.1206 17.0509 56.436L16.1333 54.65C14.7448 55.3625 13.3845 56.1032 12.0524 56.9002L13.0683 58.6444L13.0682 58.6163ZM21.1465 54.4527C22.5352 53.8244 23.9381 53.2383 25.3551 52.6944L24.6057 50.8245C23.1607 51.3965 21.7298 51.9825 20.313 52.6107L21.1324 54.4386L21.1465 54.4527ZM29.6344 51.1469C31.0797 50.6592 32.5251 50.2277 33.9986 49.8244L33.4458 47.8989C31.9582 48.3162 30.4707 48.7616 28.9974 49.2493L29.6344 51.1469ZM38.4195 48.6986C39.9073 48.3656 41.3952 48.0606 42.8972 47.7977L42.5408 45.8166C41.0107 46.0793 39.4948 46.3842 37.9649 46.7312L38.4195 48.6986ZM47.4036 47.1216C48.9199 46.929 50.4222 46.7786 51.9527 46.6563L51.7788 44.6615C50.2202 44.7838 48.6898 44.9342 47.1455 45.1267L47.4036 47.1216ZM56.5024 46.4156C58.019 46.3635 59.5498 46.3536 61.0666 46.3857L61.0753 44.3774C59.5164 44.3592 57.9715 44.3551 56.4128 44.4211L56.4884 46.4297L56.5024 46.4156ZM65.6314 46.5524C67.1485 46.6407 68.6656 46.7852 70.1829 46.9578L70.4022 44.9641C68.8569 44.7915 67.2977 44.6609 65.7526 44.5725L65.6315 46.5805L65.6314 46.5524ZM74.7067 47.5598C76.2101 47.8025 77.7135 48.0734 79.203 48.3863L79.591 46.4212C78.0734 46.1082 76.5278 45.8232 74.9963 45.5803L74.6927 47.5738L74.7067 47.5598ZM83.6578 49.4235C85.1335 49.8066 86.5952 50.2319 88.057 50.6852L88.6418 48.7767C87.1659 48.3093 85.648 47.8839 84.1582 47.4867L83.6578 49.4235ZM92.3866 52.1574C93.8064 52.6808 95.2405 53.2464 96.6465 53.84L97.428 51.9883C95.9938 51.3665 94.5458 50.8149 93.0978 50.2633L92.4147 52.1574L92.3866 52.1574ZM100.795 55.7471C102.159 56.4108 103.509 57.1166 104.845 57.8645L105.809 56.1116C104.445 55.3636 103.067 54.6296 101.661 53.9517L100.795 55.7471Z" fill="#919191"></path>
+          <path d="M95.5845 61.1824L95.0597 59.2569L104.589 56.6842L101.292 47.336L103.186 46.681L107.205 58.0676L95.5845 61.1824Z" fill="#919191"></path>
+          <circle cx="8.69433" cy="59.7296" r="3.91825" transform="rotate(-135 8.69433 59.7296)" stroke="#919191" stroke-width="2"></circle>
+        </g>
+        <defs>
+          <clipPath id="clip0_625_20131">
+            <rect width="76.2328" height="83.6102" fill="white" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 113.026 54.5132)"></rect>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="step-container">
+    <img src="/assets/images/pawn.png" alt="Step 4" class="step-image">
+  <div class="step-text">
+    <div class="step-title">Mini pronta!</div>
+    <div class="step-desc">Ve la inviamo immediatamente!</div>
+  </div>
+  </div>
+</div>
+</section>
+
+<section class="custom-mini-section">
+  <h2 class="section-title">Ordina una mini personalizzata</h2>
+
+  <div class="cards-container">
+    <!-- Card 1 -->
+    <div class="custom-card">
+      <div class="image-grid">
+        <img src="/assets/images/custom-concept-01.png" alt="Img 1">
+        <img src="/assets/images/custom-mini-01-top.png" alt="Img 2">
+        <img src="/assets/images/custom-mini-01-back.png" alt="Img 3">
+        <img src="/assets/images/custom-mini-01-bot.png" alt="Img 4">
+        <!-- Center circular image -->
+        <img src="/assets/images/custom-mini-01-face.png" alt="Center" class="center-image">
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="custom-card">
+      <div class="image-grid">
+        <img src="/assets/images/custom-concept-02.png" alt="Img 1">
+        <img src="/assets/images/custom-mini-02-top.png" alt="Img 2">
+        <img src="/assets/images/custom-mini-02-back.png" alt="Img 3">
+        <img src="/assets/images/custom-mini-02-bot.png" alt="Img 4">
+        <!-- Center circular image -->
+        <img src="/assets/images/custom-mini-02-face.png" alt="Center" class="center-image">
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="custom-card">
+      <div class="image-grid">
+        <img src="/assets/images/custom-concept-03.png" alt="Img 1">
+        <img src="/assets/images/custom-mini-03-top.png" alt="Img 2">
+        <img src="/assets/images/custom-mini-03-back.png" alt="Img 3">
+        <img src="/assets/images/custom-mini-03-bot.png" alt="Img 4">
+        <!-- Center circular image -->
+        <img src="/assets/images/custom-mini-03-face.png" alt="Center" class="center-image">
+      </div>
+    </div>
+  </div>
+<div class="custom-mini-text">
+  <p class="step-desc">
+    Hai sempre voluto una mini davvero tua?<br>
+    Inviaci un’immagine o descrivici la tua idea: la modelliamo noi.<br>
+    Se ti piace, la stampiamo. Semplice.
+  </p>
+</div>
+</section>
+
+<div class="particles-div-container">
+  {% include particles-div.html 
+     id="mainHero" 
+     title="Carica ora il tuo file oppure ordina una mini personalizzata!" 
+     btn1_text="Carica il tuo File" 
+     btn1_link="order.html" 
+     btn2_text="Mini Personalizzata" 
+     btn2_link="custom-order.html"
+  %}
+</div>
+
+<!-- Lottie Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+<script>
+  var gridAnim = lottie.loadAnimation({
+    container: document.getElementById('grid-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '/assets/lottie/grid-wave.json' // path to your Lottie JSON
+  });
+
+  // Move grid backwards slowly
+  gridAnim.setSpeed(-0.2);
+</script>
+<!-- Swiper Styles -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+
+<style>
+  /* Move pagination bullets lower */
+.featured-swiper .swiper-pagination {
+  bottom: 10px !important; /* distance from the bottom of the Swiper container */
+  left: 50%;
+  transform: translateX(-50%);
+}
+  .featured-swiper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 60px;
+    padding-top: 60px;
+  
+  }
+
+  .mini-card {
+    background: #111111;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .mini-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .mini-card h3 {
+    margin: 10px 0 5px;
+    color: #fff;
+  }
+
+  .mini-card .price {
+    color: #f0f0f0;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .mini-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    color: #fff;
+    top: 55%;                /* vertically center relative to container */
+    transform: translateY(-50%); /* keep centered even if container height changes */
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+  }
+
+  .swiper-button-next:hover, .swiper-button-prev:hover {
+    background: rgba(61, 253, 255,0.2);
+  }
+
+  .swiper-pagination-bullet {
+    background: #555;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #3dfdff;
+  }
+</style>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".featured-swiper", {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      1024: { slidesPerView: 4 },
+      768: { slidesPerView: 2 },
+      480: { slidesPerView: 1 },
+    },
+  });
+</script>
