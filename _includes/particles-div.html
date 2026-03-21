@@ -1,0 +1,30 @@
+<div class="particles-div" style="position: relative; width: 100%; height: 100%;">
+  <div id="tsparticles-{{ include.id }}"></div>
+
+  <div class="particles-div-content">
+    <h2>{{ include.title }}</h2>
+    {% if include.btn1_text and include.btn1_link %}
+      <a href="{{ include.btn1_link }}" class="particles-div-btn">{{ include.btn1_text }}</a>
+    {% endif %}
+    {% if include.btn2_text and include.btn2_link %}
+      <a href="{{ include.btn2_link }}" class="particles-div-btn">{{ include.btn2_text }}</a>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  tsParticles.load("tsparticles-{{ include.id }}", {
+    background: { color: "#404eed" },
+    fullScreen: { enable: false }, // ✅ IMPORTANT: prevents canvas from going fullscreen
+    particles: {
+      number: { value: 100, density: { enable: true, area: 800 } },
+      color: { value: "#161616" },
+      links: { enable: true, distance: 200, color: "#161616", opacity: 0.4, width: 1 },
+      move: { enable: true, speed: 2 },
+      size: { value: 2 },
+      opacity: { value: 0.5 }
+    }
+  });
+});
+</script>
