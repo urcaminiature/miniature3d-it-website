@@ -1,0 +1,483 @@
+body {
+
+background: #161616;
+color: white;
+font-family: "Segoe UI", sans-serif;
+
+margin: 0;
+}
+
+/* HEADER */
+/* Header logo */
+
+.logo img {
+    height: 40px; /* adjust size as needed */
+    width: auto;
+    display: block;
+}
+
+.site-header {
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+padding: 20px 40px;
+
+background: #1c1c1c;
+border-bottom: 2px solid #404eed;
+
+}
+
+.site-header nav a {
+
+color: white;
+margin-left: 25px;
+text-decoration: none;
+font-weight: 500;
+
+transition: 0.2s;
+
+}
+
+.site-header nav a:hover {
+
+color: #404eed;
+
+}
+
+/* HERO */
+
+.hero {
+
+text-align: center;
+padding: 120px 20px;
+
+}
+
+.hero h1 {
+
+font-size: 48px;
+margin-bottom: 20px;
+
+}
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* space between buttons */
+  margin-top: 20px;
+}
+
+.hero-buttons .cta-button {
+  display: inline-block;
+  width: 180px;           /* same width for both buttons */
+  padding: 14px 28px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.2s, opacity 0.2s;
+
+  /* unified button colors */
+  background-color: #404eed;
+  color: #ffffff;
+}
+
+.hero-buttons .cta-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+/* FOOTER */
+
+.site-footer {
+
+text-align: center;
+
+padding: 30px;
+
+margin-top: 80px;
+
+border-top: 1px solid #333;
+
+}
+/* Order form styling */
+
+.order-section {
+    max-width: 600px;
+    margin: 80px auto;
+    background: #1c1c1c;
+    padding: 40px;
+    border: 2px solid #404eed;
+    border-radius: 12px;
+}
+
+.order-section h1 {
+    text-align: center;
+    color: #404eed;
+    margin-bottom: 30px;
+}
+
+.order-section label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.order-section input,
+.order-section select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    background: #161616;
+    border: 1px solid #404eed;
+    color: white;
+    border-radius: 6px;
+}
+
+.order-section button {
+    margin-top: 25px;
+    padding: 14px 28px;
+    background: #404eed;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.order-section button:hover {
+    transform: scale(1.05);
+}
+
+/* Background container */
+.background-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* so clicks go through */
+  overflow: hidden;
+  z-index: 0; /* behind content */
+}
+
+/* Make sure the hero content is above the animations */
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* Spinning element */
+.spin {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Twinkling star (opacity) */
+.twinkle {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 3px;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Pulsing element (growing/shrinking) */
+.pulse {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 20px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Smaller pulsing element */
+.pulse-small {
+  position: absolute;
+  width: 15px; /* slightly smaller than main pulse */
+  animation: pulse 2s ease-in-out infinite; /* reuse same pulse animation */
+}
+
+/* Sliding element (left-right) */
+.slide {
+  position: absolute;
+  top: 60%;
+  left: 20%;
+  width: 50px;
+  animation: slide 3s ease-in-out infinite alternate;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+  100% { transform: translateX(0); }
+}
+/* Sliding vertically (up-down) */
+.slide-vertical {
+  position: absolute;
+  width: 50px; /* same as horizontal sliding element */
+  animation: slide-vertical 3s ease-in-out infinite alternate;
+}
+
+@keyframes slide-vertical {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(20px); } /* move down */
+  100% { transform: translateY(0); }
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between; /* spreads steps evenly across the width */
+  align-items: flex-start;
+  gap: 0; /* optional: spacing handled by space-between */
+  margin: 50px auto;
+  width: 90%; /* full width container */
+  max-width: 1200px; /* optional max width */
+}
+
+/* container for each step: stack image above text */
+.step-container {
+  display: flex;
+  flex-direction: column; /* image on top, text below */
+  align-items: center;    /* center align image and text */
+  width: 100%;            /* let flex handle spacing */
+  max-width: 250px;       /* limit width of each step */
+  text-align: center;     /* center text */
+}
+
+/* images */
+.step-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px; /* spacing between image and text */
+}
+
+/* text */
+/* step text container – normal block flow */
+
+/* links look like normal text */
+.step-text a {
+  color: inherit;           /* same color as surrounding text */
+  cursor: pointer;          /* optional */
+}
+.step-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.step-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.step-desc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.3;
+}
+
+.timeline-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0; /* space above and below */
+}
+
+.timeline-arrow svg {
+  width: 60px;   /* scale the arrow smaller if needed */
+  height: 60px;
+}
+
+.particles-section {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0; /* spacing above and below the section */
+}
+
+.particles-card {
+  background: rgba(255, 255, 255, 0.05); /* subtle background */
+  border-radius: 20px;                   /* round corners */
+  padding: 30px;
+  width: 90%;
+  max-width: 1200px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+.particles-div {
+  position: relative;
+  width: 100%;
+  height: 500px; /* adjust as needed */
+  overflow: hidden;
+  background: #111;
+}
+
+.particles-div > div[id^="tsparticles-"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.particles-div-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #ffffff;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.particles-div-btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 24px;
+  background: #fafafa;
+  color: #404eed;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 700;
+
+}
+.particles-div-container {
+  width: 1200px;       /* desired width */
+  height: 200px;      /* desired height */
+  margin: 0 auto;     /* center horizontally */
+  overflow: hidden;   /* hide overflowing particles */
+  border-radius: 40px;
+  position: relative; /* ensures hero particles stay inside */
+}
+
+/* Make sure the hero include adapts */
+.particles-div-container .particles-div {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-mini-section {
+  padding: 10px;
+  text-align: center;
+}
+
+.custom-mini-section .section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.timeline-section {
+  padding: 10px;
+  text-align: center;
+}
+
+.timeline-section .timeline-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.custom-card {
+  background: #090909;
+  border-radius: 20px;
+  padding: 10px;
+  width: 300px;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  position: relative;
+}
+
+/* Corner images are square with selective rounded corners */
+.image-grid img:not(.center-image) {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* keep squares */
+  object-fit: cover;
+}
+
+/* Top-left square (first child) */
+.image-grid img:nth-child(1) {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Top-right square (second child) */
+.image-grid img:nth-child(2) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Bottom-left square (third child) */
+.image-grid img:nth-child(3) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 0;
+}
+
+/* Bottom-right square (fourth child) */
+.image-grid img:nth-child(4) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 8px;
+}
+
+/* Smaller center circle */
+.image-grid .center-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;   /* smaller circle */
+  height: 100px;
+  border-radius: 50%;
+  border: 9px solid #090909;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+.custom-mini-text {
+  margin-top: 40px;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
