@@ -248,21 +248,11 @@ const fileNameField = document.getElementById("fileName");
 const buttonReady = formReady.querySelector("button");
 const uploadStatus = document.getElementById("uploadStatus");
 const sizeSelected = document.querySelector("select[name='size']");
-const includeBaseCheckbox = document.getElementById("includeBase");
 
 const PAYMENT_LINKS = {
-  "Small": {
-    "yes": "https://buy.stripe.com/bJecN508Z1T7au28uQffy03",
-    "no":  "https://buy.stripe.com/dRmeVd5tj55j31Ah1mffy02"
-  },
-  "Medium": {
-    "yes": "https://buy.stripe.com/aFa3cv5tj1T77hQ7qMffy04",
-    "no":  "https://buy.stripe.com/4gM8wPbRH2Xb31AaCYffy01"
-  },
-    "Large": {
-    "yes": "https://buy.stripe.com/bJeaEX5tjapD8lUh1mffy05",
-    "no":  "https://buy.stripe.com/dRmeVddZP55j59I7qMffy00"
-  }
+  "Small": "https://buy.stripe.com/dRmeVd5tj55j31Ah1mffy02",
+  "Medium": "https://buy.stripe.com/4gM8wPbRH2Xb31AaCYffy01",
+  "Large":"https://buy.stripe.com/dRmeVddZP55j59I7qMffy00"
 };
 
 // Pinata credentials
@@ -368,8 +358,7 @@ formReady.addEventListener("submit", async (e) => {
     });
 
     const size = sizeSelected.value;
-    const baseOption = includeBaseCheckbox.checked ? "yes" : "no";
-    const paymentURL = PAYMENT_LINKS[size][baseOption];
+    const paymentURL = PAYMENT_LINKS[size];
 
     window.location.href = paymentURL;
 
