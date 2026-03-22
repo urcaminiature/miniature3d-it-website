@@ -100,6 +100,43 @@ margin-top: 80px;
 border-top: 1px solid #333;
 
 }
+
+ .social-icons {
+      display: flex;
+  justify-content: center; 
+      gap: 20px;
+    }
+
+    .social-icons a {
+      font-size: 28px;
+      color: rgba(255, 255, 255, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      color: #3dfdff; /* colored on hover */
+      transform: translateY(-2px);
+    }
+/* Tablets */
+@media (max-width: 1024px) {
+  .social-icons a {
+    font-size: 38px;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .social-icons a {
+    font-size: 36px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .social-icons a {
+    font-size: 32px;
+  }
+}
 /* Order form styling */
 
 .order-section {
@@ -480,4 +517,23 @@ border-top: 1px solid #333;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.shipping-bar {
+  width: 100%;
+  background-color: #404eed; /* or your brand color */
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+.shipping-bar {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.shipping-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
