@@ -327,9 +327,9 @@ title: Miniature3D
       clickable: true,
     },
     breakpoints: {
-      1024: { slidesPerView: 4 },
-      768: { slidesPerView: 2 },
-      480: { slidesPerView: 1 },
+      1024: { slidesPerView: 4, spaceBetween: 20 },  // desktop
+      768:  { slidesPerView: 2, spaceBetween: 15 },  // tablet
+      0:    { slidesPerView: 1, spaceBetween: 10 }   // mobile: all widths <768px
     },
   });
 </script>
