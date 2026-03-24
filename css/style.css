@@ -696,4 +696,4 @@ border-top: 1px solid #333;
 }
 
 .shipping-bar { width: 100%; background-color: #404eed; /* or your brand color */ color: #ffffff; text-align: center; padding: 10px 0; font-size: 14px; font-weight: 500; } .shipping-bar { letter-spacing: 0.5px; text-transform: uppercase; } 
-.shipping-bar { position: fixed; top: 0; z-index: 1000; }
+.shipping-bar { position: sticky; top: 0; z-index: 1000; }
