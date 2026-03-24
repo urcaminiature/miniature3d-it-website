@@ -1,15 +1,13 @@
 body {
-
 background: #161616;
 color: white;
 font-family: "Segoe UI", sans-serif;
-
 margin: 0;
 }
 
+
 /* HEADER */
 /* Header logo */
-
 .logo img {
     height: 40px; /* adjust size as needed */
     width: auto;
@@ -17,16 +15,14 @@ margin: 0;
 }
 
 .site-header {
-
 display: flex;
 justify-content: space-between;
-align-items: center;
+align-items: flex-start;
 
 padding: 20px 40px;
 
 background: #1c1c1c;
 border-bottom: 2px solid #404eed;
-
 }
 
 .site-header nav a {
@@ -87,6 +83,38 @@ margin-bottom: 20px;
   transform: scale(1.05);
   opacity: 0.9;
 }
+
+/* invisible on phone */
+@media (max-width: 768px) {
+.hero h1 {
+  font-size: 32px;
+}
+
+.hero p {
+  font-size: 14px;
+}
+
+.hero-buttons {
+  flex-direction: column;
+  gap: 12px;
+      align-items: center;          /* center horizontally */
+    justify-content: center;      /* optional: center vertically if needed */
+    margin: 0 auto;               /* ensure container itself is centered */
+}
+
+.hero-buttons .cta-button {
+  width: 100%;
+  text-align: center;
+  margin: 0;                    /* remove extra margins that break centering */
+}
+}
+
+@media (max-width: 768px) {
+  .mini-card img {
+    height: 200px; /* fits better on small screens */
+  }
+}
+
 /* FOOTER */
 
 .site-footer {
@@ -187,7 +215,7 @@ border-top: 1px solid #333;
     transform: scale(1.05);
 }
 
-/* Background container */
+/* Background container **************************************************************************/
 .background-elements {
   position: absolute;
   top: 0;
@@ -281,6 +309,45 @@ border-top: 1px solid #333;
   100% { transform: translateY(0); }
 }
 
+/* invisible on phone */
+@media (max-width: 768px) {
+  .background-elements {
+  display: none;
+}
+
+}
+/**********************************************************************/
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;       /* stack steps vertically */
+    align-items: center;          /* center them */
+    gap: 40px;                    /* spacing between steps */
+  }
+
+  .timeline-arrow {
+    display: none;                /* hide the arrows between steps */
+  }
+
+  .step-container {
+    max-width: 90%;               /* make each step fill more of the screen */
+    margin: 0 auto;   /* center it */
+  }
+
+  .step-image {
+    width: 80px;                  /* keep images a reasonable size */
+    height: 80px;
+  }
+
+  .step-title {
+    font-size: 1.2rem;            /* slightly bigger titles for readability */
+  }
+
+  .step-desc {
+    font-size: 1rem;              /* slightly bigger description */
+    line-height: 1.4;
+  }
+}
+
 .timeline {
   display: flex;
   justify-content: space-between; /* spreads steps evenly across the width */
@@ -348,6 +415,13 @@ border-top: 1px solid #333;
   height: 60px;
 }
 
+/* Hide timeline arrows on phones */
+@media (max-width: 768px) {
+  .timeline-arrow {
+    display: none;
+  }
+}
+
 .particles-section {
   display: flex;
   justify-content: center;
@@ -398,7 +472,8 @@ border-top: 1px solid #333;
 
 }
 .particles-div-container {
-  width: 1200px;       /* desired width */
+  width: 100%;          /* fill screen width */
+  max-width: 1200px;    /* optional max width */
   height: 200px;      /* desired height */
   margin: 0 auto;     /* center horizontally */
   overflow: hidden;   /* hide overflowing particles */
@@ -410,6 +485,36 @@ border-top: 1px solid #333;
 .particles-div-container .particles-div {
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 768px) {
+  .particles-div-container {
+    height: 300px;       /* fixed smaller height for phone */
+    max-height: 300px;   /* ensure it doesn’t stretch */
+  }
+
+  .particles-div {
+    height: 100%;        /* fill the container */
+  }
+}
+@media (max-width: 768px) {
+  .particles-div-content {
+    top: 50%;               /* vertical center */
+    transform: translateY(-50%);
+    padding: 0 10px;        /* small horizontal padding */
+
+        display: flex;
+    flex-direction: column;  /* stack vertically */
+    gap: 20px;               /* same as hero-buttons gap */
+    align-items: center;     /* center horizontally */
+  }
+
+.particles-div-btn {
+    display: inline-block;  /* same as hero buttons */
+    width: 100%;            /* full width */
+    margin: 0;              /* no extra margin */
+    text-align: center;
+}
 }
 
 .custom-mini-section {
