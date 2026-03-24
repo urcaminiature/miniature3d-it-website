@@ -707,7 +707,7 @@ border-top: 1px solid #333;
   text-transform: uppercase;
 
   /* sticky fix */
-  position: fixed;   /* switch from sticky to fixed */
+  position: sticky;   /* switch from sticky to fixed */
   top: 0;
   left: 0;
   z-index: 9999;     /* ensure it’s above everything */
