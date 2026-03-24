@@ -148,7 +148,7 @@ margin-bottom: 20px;
   opacity: 0.9;
 }
 
-/* invisible on phone */
+
 @media (max-width: 768px) {
 .hero h1 {
   font-size: 32px;
@@ -373,11 +373,18 @@ border-top: 1px solid #333;
   100% { transform: translateY(0); }
 }
 
-/* invisible on phone */
+/* on phone */
 @media (max-width: 768px) {
-  .background-elements {
-  display: none;
-}
+  .background-elements img {
+    transform: scale(0.15); /* smaller on mobile */
+  }
+
+  .spin { animation-duration: 15s; }
+  .twinkle { width: 20px; height: 20px; }
+  .pulse { display: none; }
+  .pulse-small { width: 15px; height: 15px; }
+  .slide {  display: none;  }
+  .slide-vertical { width: 30px; height: auto; }
 
 }
 /**********************************************************************/
