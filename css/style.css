@@ -712,20 +712,3 @@ border-top: 1px solid #333;
   left: 0;
   z-index: 9999;     /* ensure it’s above everything */
 }
-
-/* Push content down so it doesn’t overlap the shipping bar */
-body {
-  padding-top: 40px; /* adjust if your bar is taller or shorter */
-}
-
-/* Optional: smaller bar on mobile */
-@media (max-width: 768px) {
-  .shipping-bar {
-    padding: 6px 0;
-    font-size: 12px;
-  }
-
-  body {
-    padding-top: 32px; /* match the smaller height */
-  }
-}
