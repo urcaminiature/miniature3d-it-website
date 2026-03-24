@@ -1,23 +1,39 @@
 <header class="site-header">
 
-<div class="logo">
-    <a href="/">
-        <img src="/assets/images/logo.png"
-             srcset="/assets/images/logo.png 1x, /assets/images/logo@2x.png 2x"
-             alt="Miniature3D Logo">
-    </a>
-</div>
+  <div class="logo">
+      <a href="/">
+          <img src="/assets/images/logo.png"
+               srcset="/assets/images/logo.png 1x, /assets/images/logo@2x.png 2x"
+               alt="Miniature3D Logo">
+      </a>
+  </div>
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/products">Shop</a>
-    <a href="/about">Chi Siamo</a>
-    <a href="/order">Carica File</a>
-    <a href="/FAQ">FAQs</a>
-    <a href="/contact">Contatti</a>
-</nav>
+  <!-- Hamburger icon (mobile only) -->
+  <div class="hamburger" id="mobile-menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+
+  <nav id="mobile-nav">
+      <a href="/">Home</a>
+      <a href="/products">Shop</a>
+      <a href="/about">Chi Siamo</a>
+      <a href="/order">Carica File</a>
+      <a href="/FAQ">FAQs</a>
+      <a href="/contact">Contatti</a>
+  </nav>
 
 </header>
 <div class="shipping-bar">
   🚚 Spedizione gratuita in Italia! 🚚
 </div>
+
+<script>
+  const hamburger = document.getElementById('mobile-menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('show');
+  });
+</script>
