@@ -36,7 +36,7 @@ products.forEach(product => {
 
   card.innerHTML = `
     <div class="product-card">
-      <img src="{{ site.baseurl }}${product.image}" alt="${fileName}">
+      <img src="${'{{ site.baseurl }}'}${product.image}" alt="${fileName}">
       <h3>${fileName}</h3>
       <p class="price">${price}</p>
     </div>
