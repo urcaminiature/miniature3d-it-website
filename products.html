@@ -1,50 +1,74 @@
 ---
 layout: default
-title: Esplora Prodotti
+title: Explore Products
 ---
 
 <section class="title">
   <h1>Esplora le Nostre Miniature</h1>
 </section>
-<section class="explore-products">
-  Catalogo in aggiornamento!
-<!--
-  <a href="https://buy.stripe.com/test_1KnightLink" target="_blank" class="product-link">
-    <div class="product-card">
-      <img src="/assets/images/card-item-01.jpg" alt="Knight Miniature">
-      <h3>Knight Miniature</h3>
-      <p class="price">€12.00</p>
-    </div>
-  </a>
 
-  <a href="https://buy.stripe.com/test_2DragonLink" target="_blank" class="product-link">
-    <div class="product-card">
-      <img src="/assets/images/card-item-02.jpg" alt="Dragon Miniature">
-      <h3>Dragon Miniature</h3>
-      <p class="price">€18.00</p>
-    </div>
-  </a>
-
-  <a href="https://buy.stripe.com/test_3WizardLink" target="_blank" class="product-link">
-    <div class="product-card">
-      <img src="/assets/images/card-item-03.jpg" alt="Wizard Miniature">
-      <h3>Wizard Miniature</h3>
-      <p class="price">€15.00</p>
-    </div>
-  </a>
--->
-  <!-- Repeat for the remaining cards with your Stripe links -->
+<section class="explore-products" id="product-container">
 </section>
+
+<script>
+// 🔗 Map each product name to its Stripe link
+  const productLinks = {
+    "Drider (Grande)": "https://buy.stripe.com/9B63cv8Fv8hvgSqeTeffy06",
+    "Orrore Sotterraneo (Grande)": "https://buy.stripe.com/dRm4gz5tj41f9pY8uQffy07",
+    "Ragno (Grande)": "https://buy.stripe.com/9B628raND1T7by66mIffy08",
+    "Spectator (Grande)": "https://buy.stripe.com/9B67sL5tj8hv9pY3awffy09",
+    "Ombra (Medio)": "https://buy.stripe.com/9B67sLcVLeFT7hQ26sffy0a",
+    // Add more here
+  };
+
+// 📂 List of images (Jekyll injects this)
+    const images = [
+      {% for image in site.static_files %}
+        {% if image.path contains '/products/' and image.extname == '.png' %}
+          "{{ image.path }}",
+        {% endif %}
+      {% endfor %}
+    ];
+
+const container = document.getElementById("product-container");
+
+images.forEach(path => {
+  const fileName = path.split('/').pop().replace('.png', '');
+
+  let price = "€12.00";
+  if (fileName.includes("(Medio)")) price = "€7.90";
+  if (fileName.includes("(Grande)")) price = "€8.90";
+
+  const link = productLinks[fileName] || "#";
+
+  const card = document.createElement("a");
+  card.href = link;
+  card.target = "_blank";
+  card.className = "product-link";
+
+  card.innerHTML = `
+    <div class="product-card">
+      <img src="${path}" alt="${fileName}">
+      <h3>${fileName}</h3>
+      <p class="price">${price}</p>
+    </div>
+  `;
+
+  container.appendChild(card);
+});
+</script>
+
 <style>
-  .title {
+.title {
   text-align: center;
   font-weight: bold;
   margin-bottom: 30px;
 }
+
 .explore-products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 250px); /* fixed width for each card */
-  justify-content: center;  /* centers the grid horizontally */
+  grid-template-columns: repeat(auto-fill, 250px);
+  justify-content: center;
   gap: 20px;
   max-width: 1200px;
   margin: 40px auto;
@@ -57,16 +81,17 @@ title: Esplora Prodotti
   overflow: hidden;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  padding: 10px;          /* equal space on all sides */
+  padding: 10px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .product-card img {
-  width: 100%;            /* full width inside padding */
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;     /* match card corners */
+  width: 100%;
+  height: auto;           /* keep full image ratio */
+  object-fit: contain;    /* ensure no cropping */
+  border-radius: 8px;
   display: block;
+  background: #111;       /* optional: adds contrast if images have transparency */
 }
 
 .product-card h3 {
@@ -79,15 +104,14 @@ title: Esplora Prodotti
   margin-bottom: 15px;
 }
 
-/* Optional: hover effect */
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 .product-link {
-  text-decoration: none;  /* remove underline */
-  color: inherit;         /* keep text color */
-  display: block;         /* make the link cover the card */
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 </style>
